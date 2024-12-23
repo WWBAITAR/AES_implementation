@@ -1,13 +1,20 @@
-
+# Variables declaration
 CC=gcc
 
-SRC_PATH = Source_files
-HDR_PATH = Header_files
+SRC_DIR = Source_files
+HDR_DIR = Header_files
+OBJ_DIR = build
 
-CFLAGS=-I. -I$(HDR_PATH)
+OBJ = $(OBJ_DIR)/main.o
 
-%.o: $(SRC_PATH)/%.c $(HDR_PATH)/Addition.h
+CFLAGS=-I. -I$(HDR_DIR)
+
+# Creating object files
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c #$(HDR_DIR)/%.h
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-main: main.o Addition.o
-	$(CC) -o main main.o Addition.o
+# Creating exe file
+
+main: $(OBJ)
+	$(CC) -o main $(OBJ)
