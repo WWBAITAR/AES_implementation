@@ -109,5 +109,13 @@ void mix_columns(uint8_t* plainText)
     
 }
 
+void add_round_key(uint8_t* plainText, uint8_t* key)
+{
+    for(int i=0; i<ELEMENTS_PER_BLOCK; i++)
+    {
+        plainText[i] ^= key[i];
+    }
+}
+
 
 

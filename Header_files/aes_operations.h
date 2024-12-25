@@ -11,7 +11,9 @@ enum key_size
 
 void sub_bytes(uint8_t* plainText);
 
-void shift_rows(uint8_t *plainText);
+void shift_rows(uint8_t* plainText);
 
 void mix_columns(uint8_t* plainText);
+
+void add_round_key(uint8_t* plainText, uint8_t* key);
 
